@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex骰子布局</title>
+</head>
+
+<body>
+  <!-- 一个点 -->
+  <!-- <div class="box">
+    <div class="item"></div>
+  </div> -->
+
+  <!-- 两个点 -->
+  <!-- <div class="box">
+    <div class="item"></div>
+    <div class="item"></div>
+  </div> -->
+
+  <!-- 三个点 -->
+  <!-- <div class="box">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div> -->
+
+  <!-- 四个点 -->
+  <!-- <div class="box">
+    <div class="column">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="column">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div> -->
+
+  <!-- 六个点 -->
+  <!-- <div class="box">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div> -->
+
+  <!-- 百分比布局 -->
+  <!-- <div class="Grid">
+    <div class="Grid-cell u-1of2">...</div>
+    <div class="Grid-cell u-1of4">...</div>
+    <div class="Grid-cell u-1of3">...</div>
+  </div> -->
+
+  <!-- 圣杯布局 -->
+  <div class="container">
+    <header><span>header</span></header>
+    <div class="home-body">
+      <nav class="home-nav"></nav>
+      <main class="home-content"></main>
+      <aside class="home-ads"></aside>
+    </div>
+    <footer><span>footer</span></footer>
+  </div>
+</body>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 骰子布局样式 */
+  .box {
+    width: 300px;
+    height: 300px;
+    background: deepskyblue;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-content: space-between; */
+  }
+
+  /* .column {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+  } */
+
+  .item {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  .item:nth-child(2) {
+    align-self: center;
+  }
+
+  /* 百分比布局样式 */
+  .Grid>div:nth-child(1) {
+    width: 700px;
+    height: 100px;
+    background-color: darksalmon;
+  }
+
+  .Grid>div:nth-child(2) {
+    width: 700px;
+    height: 100px;
+    background-color: dodgerblue;
+  }
+
+  .Grid>div:nth-child(3) {
+    width: 700px;
+    height: 100px;
+    background-color: yellow;
+  }
+
+  .Grid {
+    display: flex;
+  }
+
+  .Grid-cell {
+    flex: 1;
+  }
+
+  .Grid-cell.u-full {
+    flex: 100%;
+  }
+
+  .Grid-cell.u-1of2 {
+    flex: 0 0 50%;
+  }
+
+  .Grid-cell.u-1of3 {
+    flex: 0 0 33.3333%;
+  }
+
+  .Grid-cell.u-1of4 {
+    flex: 0 0 25%;
+  }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  header,
+  footer {
+    flex: 1;
+    height: 200px;
+    background-color: tomato;
+  }
+
+  .home-body {
+    flex: 1;
+    display: flex;
+  }
+
+  .home-nav {
+    background-color: turquoise;
+    flex: 0 0 20em;
+  }
+
+  .home-content {
+    background-color: violet;
+    flex: 1;
+    order: -1;
+  }
+
+  .home-ads {
+    background-color: wheat;
+    flex: 0 0 20em;
+    order: -2;
+  }
+
+  @media (max-width: 768px) {
+  .home-body {
+    flex-direction: column;
+    flex: 1;
+  }
+  .home-nav,
+  .home-ads,
+  .home-content {
+    flex: auto;
+  }
+}
+</style>
+
+</html>
