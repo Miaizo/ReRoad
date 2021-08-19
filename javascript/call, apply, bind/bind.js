@@ -18,6 +18,6 @@ var p2 = {
 
 p1.func()
 p1.func.call(p2)
-p1.func.apply(p2)
+p1.func.apply(global)
 p1.func.bind(p2)()
 
