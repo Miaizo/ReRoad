@@ -30,17 +30,36 @@
       console.log(this)
     };
 
+    // function debounce(func, wait) {
+    //   var timeout;
+
+    //   return () => {
+    //     clearTimeout(timeout)
+    //     timeout = setTimeout(()=>{func.apply(this,arguments)}, wait);
+    //   }
+    // }
+
     function debounce(func, wait) {
       var timeout;
 
-      return () => {
-        // var context = this;
-        // var args = arguments;
+      return function () {
+          var context = this;
 
-        clearTimeout(timeout)
-        timeout = setTimeout(()=>{func.apply(this,arguments)}, wait);
+          clearTimeout(timeout)
+          timeout = setTimeout(function(){
+              func.apply(context)
+          }, wait);
       }
     }
+
+    // function debounce (fn, wait) {
+    //   let timeout = null;
+    //   return function () {
+    //     if (timeout !== null) clearTimeout(timeout);
+    //     timeout = setTimeout(fn, wait);
+    //   }
+    // }
+    
     container.onmousemove = debounce(getUserAction, 1000);
     // container.onmousemove = getUserAction;
   </script>
