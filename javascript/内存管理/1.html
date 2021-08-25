@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.避免全局变量,不要使用var,使用let和const
+    // var a = 1
+    // console.log(window.a) // 1
+
+    // let b = 10
+    // console.log(window.b) // undefined
+
+    // function fn () {
+    //   name = 'lg'
+    //   console.log(`${name} is a coder`) 
+    // }
+    // fn()
+
+    // 2.避免全局查找
+    // function setSize () {
+    //   const w = window.innerWidth
+    //   const h = window.innerHeight
+
+    //   console.log(w, h)
+    // }
+    // setSize()
+
+    // 3.避免循环引用
+    // function fn () {
+    //   let obj = document.getElementById('box')
+    //   obj.onclick = function () {
+    //     console.log(this)
+    //   }
+    //   obj = null  // 将引用的对象设置为null
+    // }
+
+    // 4.采用字面量替换new
+    // let a1 = []  // 推荐
+    // let a2 = new Array()
+
+    // 5.使用setInterval替代setTimeout (setTimeout每调用一次就会申请一次内存空间)
+    // let num = 0
+
+    // function fn () {
+    //   num++
+    //   console.log(111)
+    //   if (num < 3) {
+    //     setTimeout(fn, 1000)
+    //   }
+    // }
+    // fn()
+
+    // function fn() {
+    //   num++
+    //   console.log(111)
+    //   if (num >= 3) {
+    //     clearInterval(timer)
+    //   }
+    // }
+
+    // timer = setInterval(fn, 1000);
+
+    // 6.采用事件委托
+  </script>
+</body>
+</html>
