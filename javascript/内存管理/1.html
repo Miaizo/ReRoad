@@ -7,6 +7,11 @@
   <title>Document</title>
 </head>
 <body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
   <script>
     // 1.避免全局变量,不要使用var,使用let和const
     // var a = 1
@@ -66,6 +71,19 @@
     // timer = setInterval(fn, 1000);
 
     // 6.采用事件委托
+    // document.querySelectorAll('li').forEach((e) => {
+    //   e.onclick = function () {
+    //     console.log(e.innerHTML)
+    //   }
+    // })
+
+    document.querySelector('ul').onclick = (event) => {
+      let ev = event || window.event;
+      let tar = event.target || event.srcElement
+      if (tar.nodeName.toLowerCase() === 'li') {
+        console.log(tar.innerHTML)
+      }
+    }
   </script>
 </body>
 </html>
