@@ -39,26 +39,26 @@
     //   }
     // }
 
-    function debounce(func, wait) {
-      var timeout;
+    // function debounce(func, wait) {
+    //   var timeout;
 
-      return function () {
-          var context = this;
-
-          clearTimeout(timeout)
-          timeout = setTimeout(function(){
-              func.apply(context)
-          }, wait);
-      }
-    }
-
-    // function debounce (fn, wait) {
-    //   let timeout = null;
     //   return function () {
-    //     if (timeout !== null) clearTimeout(timeout);
-    //     timeout = setTimeout(fn, wait);
+    //       var context = this;
+
+    //       clearTimeout(timeout)
+    //       timeout = setTimeout(function(){
+    //           func.apply(context)
+    //       }, wait);
     //   }
     // }
+
+    function debounce (fn, wait) {
+      let timeout;
+      return function () {
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(fn, wait);
+      }
+    }
     
     container.onmousemove = debounce(getUserAction, 1000);
     // container.onmousemove = getUserAction;

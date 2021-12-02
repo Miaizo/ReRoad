@@ -1,4 +1,4 @@
-let arr = [1, 1, "1", "1", true, true, "true", {}, {}, "{}", null, null, undefined, undefined, NaN, NaN];
+let arr = [1, 1, "1", "1", true, true, "true", {a: 1}, {a: 1}, "{}",[] ,[], null, null, undefined, undefined, NaN, NaN];
 
 // 1.两层循环去重(不能去除{}、NaN)
 function unique1 (array) {
@@ -45,3 +45,18 @@ console.log(unique3(arr));
 let unique4 = [...new Set(arr)];
 
 console.log(unique4);
+
+// 5.同new Set
+const unique5 = arr => {
+  const map = new Map();
+  const res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!map.has(arr[i])) {
+      map.set(arr[i], true)
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}
+
+console.log(unique5(arr))
