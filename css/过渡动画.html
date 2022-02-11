@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      /* width: 100%; */
+      padding: 50px;
+      box-sizing: border-box;
+    }
+    .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .img {
+      width: 890px;
+      margin: 30px auto;
+    }
+    .tra {
+      transition: height 2s;
+    }
+    .img-blue {
+      width: 100%;
+      height: 100%;
+    }
+    .img-blue:hover {
+      height: 0;
+    }
+    .img-red {
+      width: 100%;
+      height: 100%;
+    }
+    .img-red:hover {
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="height: 1000px;"></div>
+    <div class="box">
+      <div class="img">
+        <div class="">
+          <img class="img-blue" src="../assets/theme-index-blue.png" alt="">
+        </div>  
+        <div class="tra" style="height: 100px;background: red">
+          <!-- <img class="img-red" src="../assets/theme-index-red.png" alt=""> -->
+        </div>
+      </div>
+      
+    </div>
+    <div style="height: 1000px;"></div>
+  </div>
+</body>
+</html>
