@@ -1,5 +1,14 @@
 const hello = (name: string) => {
-    console.log(`hello, ${name}`)
+  console.log(`hello, ${name}`)
 }
 
 hello('Typescript')
+
+const obj = {
+  'name': 18,
+  age: 17,
+}
+
+const obj1 = {}
+
+function zxc(a, b) {}

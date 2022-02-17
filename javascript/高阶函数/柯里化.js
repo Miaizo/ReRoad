@@ -15,15 +15,15 @@ const _ = require('lodash')
 // console.log(checkAge18(18))
 
 // lodash的柯里化方法
-function getSum (a, b, c) {
-  return a + b + c
-}
+// function getSum (a, b, c) {
+//   return a + b + c
+// }
 
-const curry = curry1(getSum);
+// const curry = curry1(getSum);
 
-console.log(curry(1)(2)(3));
-console.log(curry(1, 2)(3));
-console.log(curry(1, 2, 3));
+// console.log(curry(1)(2)(3));
+// console.log(curry(1, 2)(3));
+// console.log(curry(1, 2, 3));
 
 // 柯里化案例
 // const match = _.curry(function (reg, str) {
@@ -53,11 +53,23 @@ console.log(curry(1, 2, 3));
 //   }
 // }
 
-// function reduce (...args) {
-//   return args.reduce((a, b) => a + b)
-// }
+function reduce (args) {
+  return args.reduce((a, b) => a + b)
+}
 
-// let add = curry1(reduce)
-// console.log(add(1,2,3,4,5))
-// console.log(add(1)(2,3)(4,5))
-// console.log(add(1,2,3,4,5))
+let add = curry(reduce)
+console.log(add(1,2,3,4,5)())
+console.log(add(1)(2,3)(4,5)())
+console.log(add(1,2,3,4,5)())
+
+// 柯里化（参数个数不确定）
+function curry(fn){
+  let parmas = []
+  return function sum(...args){
+      if(args.length){//判断是否有参数
+          parmas = [...parmas,...args]
+          return sum
+      }
+      return fn(parmas)
+  }
+}
