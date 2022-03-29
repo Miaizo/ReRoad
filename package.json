@@ -5,6 +5,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "rsshub": "^1.0.0-master.073df65",
     "vue": "^3.2.29"
   }
 }
